@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Routes
+} from "react-router-dom";
+import React from 'react';
+import { Home } from "./pages/Home";
+import { DatePick } from "./pages/DatePick";
+import { Users } from "./pages/Users";
+import { Chart } from "./pages/Chart";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Penguin Charts</h1>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/users" element={<Users/>}/>
+          <Route path="/date" element={<DatePick/>}/>
+          <Route path="/chart" element={<Chart/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
